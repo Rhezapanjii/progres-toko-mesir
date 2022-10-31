@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Barang;
 
 class BarangController extends Controller
 {
@@ -14,7 +15,7 @@ class BarangController extends Controller
     public function index()
     {
         //
-        $barang = barang::all();
+        $barang = Barang::all();
         return view('barang/index', compact ('barang'));
     }
 
@@ -50,23 +51,23 @@ class BarangController extends Controller
             'jumlah',
             'harga',
             'tanggalKadaluarsa'
-        ])
-    //     $barang = barang::create($array);
-    //     return redirect()->route('barang.index')
-    //     ->with('succes_massage','Berhasil Menambahkan Data Barang')
+        ]);
+        $barang = barang::create($array);
+        return redirect()->route('barang.index')
+        ->with('succes_massage','Berhasil Menambahkan Data Barang');
 
-    // }
+    }
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show($id)
-    // {
-    //     //
+    public function show($id)
+    {
+        //
         
-    // }
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -99,10 +100,10 @@ class BarangController extends Controller
 
         $array = $request->only([
             'nama'
-        ])
+        ]);
         $barang = barang::findOrFail($id);
         $barang->update($array);
-        return redirect()->route('barang.imdex')
+        return redirect()->route('barang.index')
         -with('succes_message', 'berhasil mengubah data barang');
     }
 
@@ -118,6 +119,6 @@ class BarangController extends Controller
         $barang = barang::findOrfail($id);
         $barang ->delete();
         return redirect()->route('barang.index')
-        -with('succes_message', 'Berhasil menghapus data barang')
+        -with('succes_message', 'Berhasil menghapus data barang');
     }
 }

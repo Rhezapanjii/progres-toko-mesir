@@ -14,7 +14,7 @@ class Barang extends Model
      *
      * @var array
      */
-    protected $barang="barang";
+    protected $table="barang";
     protected $fillable = [
         'nama',
         'jumlah',

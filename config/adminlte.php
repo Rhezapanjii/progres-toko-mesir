@@ -295,6 +295,11 @@ return [
             'url'  => '/users',
             'icon'  => 'fa fa-users',
         ],
+        [
+            'text' => 'Barang',
+            'url'  => '/barang',
+            'icon'  => 'fa fa-users',
+        ],
         
     ],
 

@@ -38,3 +38,6 @@ Route::get('/home', function() {
 
 Route::resource('users', \App\Http\Controllers\UserController::class)
     ->middleware('auth');
+
+Route::resource('barang', \App\Http\Controllers\BarangController::class)
+    ->middleware('auth');

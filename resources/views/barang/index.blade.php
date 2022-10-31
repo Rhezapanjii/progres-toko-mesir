@@ -21,19 +21,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($users as $key => $user)
+                        @foreach($barang as $key => $barang)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>
-                                    <a href="{{route('users.edit', $user)}}" class="btn btn-primary btn-xs">
-                                        Edit
-                                    </a>
-                                    <a href="{{route('users.destroy', $user)}}" onclick="notificationBeforeDelete(event, this)" class="btn btn-danger btn-xs">
-                                        Delete
-                                    </a>
-                                </td>
+                                <td>{{$barang->nama}}</td>
                             </tr>
                         @endforeach
                         </tbody>
